@@ -1,26 +1,14 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Counter from "./Counter.js";
+import TodoList from './TodoList';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
+      Siema Elo
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Zaczynamy programować
-        </p>
-        <Counter title= "test"/>
-        <Counter title= "gest"/>
-        <Counter/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <TodoList title="Zadania" />
+    
       </header>
     </div>
   );
