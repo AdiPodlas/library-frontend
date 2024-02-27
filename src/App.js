@@ -5,10 +5,9 @@ import TodoList from './TodoList';
 function App() {
   return (
     <div className="container">
-      Siema Elo
+      <h1>Nowa Lista Zadań</h1>
       <header className="App-header">
         <TodoList title="Zadania" />
-    
       </header>
     </div>
   );

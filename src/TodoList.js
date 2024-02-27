@@ -1,20 +1,20 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = () => {
+const TodoList = ({ title, description }) => {
   const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
 
   const addTask = () => {
-    const newTask = `Zadanie ${tasks.length + 1}`;
-    setTasks((prevTasks) => [...prevTasks, { task: newTask, isDone: false }]);
+    if (newTask.trim() !== '') {
+      setTasks((prevTasks) => [...prevTasks, { task: newTask, isDone: false }]);
+      setNewTask('');
+    }
   };
 
-  const toggleTask =(index) => {
-    console.log ("Wiadomość", index)
+  const toggleTask = (index) => {
     setTasks((prevTasks) => {
       const updatedTasks = [...prevTasks];
-
-      console.log(updatedTasks[index])
       updatedTasks[index].isDone = !updatedTasks[index].isDone;
       return updatedTasks;
     });
@@ -22,6 +22,14 @@ const TodoList = () => {
 
   return (
     <div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <input
+        type="text"
+        placeholder="Nowe zadanie"
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+      />
       <button onClick={addTask}>Dodaj zadanie</button>
       <ul>
         {tasks.map((task, index) => (

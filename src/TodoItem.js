@@ -6,7 +6,6 @@ const TodoItem = ({ task, isDone, toggleTask }) => {
     color: isDone ? 'green' : 'gray',
   };
 
-
   return (
     <div>
       <span style={taskStyle}>{task} </span>
