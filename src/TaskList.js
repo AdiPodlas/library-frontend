@@ -12,30 +12,27 @@ const TodoList = ({ title, description }) => {
       setNewTask('');
     }
   };
- // const deleteFinishedTask = () => {
- //     setTasks((prevTasks) => {
- //       const result = []
- //       for (const task of prevTasks){
- //         if (task.isDone === false){
- //          result.push(task)}
- //       }
- //       return result
- //     });
- //     
- //   
- // };
+  // const deleteFinishedTask = () => {
+  //     setTasks((prevTasks) => {
+  //       const result = []
+  //       for (const task of prevTasks){
+  //         if (task.isDone === false){
+  //          result.push(task)}
+  //       }
+  //       return result
+  //     });
+  //     
+  //   
+  // };
 
- const deleteFinishedTask = () => {
-  setTasks((prevTasks) => {
-    return prevTasks.filter(task => task.isDone === false)
-  
-  });
+  const deleteFinishedTask = () => {
+    setTasks((prevTasks) => prevTasks.filter(task => task.isDone === false));
   };
 
   const toggleTask = (index) => {
     setTasks((prevTasks) => {
       const updatedTasks = [...prevTasks];
-     updatedTasks[index] = {...updatedTasks[index], isDone: !updatedTasks[index].isDone } ;
+      updatedTasks[index] = { ...updatedTasks[index], isDone: !updatedTasks[index].isDone };
       return updatedTasks;
     });
   };
