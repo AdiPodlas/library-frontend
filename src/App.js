@@ -7,7 +7,7 @@ function App() {
     <div className="container">
       <h1>Nowa Lista Zadań</h1>
       <header className="App-header">
-        <TodoList title="To do List" />
+        <TodoList title="To do list" />
       </header>
     </div>
   );
