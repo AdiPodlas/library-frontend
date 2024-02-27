@@ -15,7 +15,7 @@ const TodoList = ({ title, description }) => {
   const toggleTask = (index) => {
     setTasks((prevTasks) => {
       const updatedTasks = [...prevTasks];
-      updatedTasks[index].isDone = !updatedTasks[index].isDone;
+     updatedTasks[index] = {...updatedTasks[index], isDone: !updatedTasks[index].isDone } ;
       return updatedTasks;
     });
   };
