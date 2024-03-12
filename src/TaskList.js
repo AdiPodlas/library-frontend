@@ -36,6 +36,16 @@ const TodoList = ({ title, description }) => {
       return updatedTasks;
     });
   };
+  const changeToUppercase = () => {
+    setTasks((prevTasks) => {
+      return prevTasks.map(task => {
+        if (!task.isDone) {
+          return { ...task, task: task.task.toUpperCase() };
+        }
+        return task;
+      });
+    });
+  };
 
   return (
     <div>
@@ -49,6 +59,7 @@ const TodoList = ({ title, description }) => {
       />
       <button onClick={addTask}>Dodaj zadanie</button>
       <button onClick={deleteFinishedTask}>Usuń zakończone zadanie</button>
+      <button onClick={changeToUppercase}>Zmień na wielkie litery (niezakończone)</button>
       <ul>
         {tasks.map((task, index) => (
           <li key={index}>
