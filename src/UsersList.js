@@ -1,17 +1,33 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import UserItem from "./UserItem";
 
-function UsersList(){
-const [users, setUsers] = useState([]) 
-useEffect (() => {
-    const response =  fetch("https://jsonplaceholder.typicode.com/users")
+function UsersList() {
+  const [users, setUsers] = useState([]);
 
-    response.then(r => (r.json())).then(body => setUsers(body))
-}, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
+    };
 
+    fetchData();
+  }, []);
 
-return(
-    <div> response {users.map(u => <div> {u.name} email: {u.email} </div>)}
+  return (
+    <div>
+      {users.map((user, index) => (
+        <UserItem key={index} user={user} />
+      ))}
     </div>
-)
+  );
 }
+
 export default UsersList;
