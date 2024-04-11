@@ -10,7 +10,7 @@ function BookItem({ book }) {
         <div style={bookItemStyle}>
             <h3>{book.title}</h3>
             <p>Author: {book.author}</p>
-            <p>ISBN: {book.isbn}</p>
+            <p>Category: {book.categoryName}</p>
 
         </div>
     );
