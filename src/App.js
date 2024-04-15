@@ -1,20 +1,29 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import TodoList from './TaskList';
 import UsersList from './UsersList';
 import BooksList from './BooksList';
 import CartList from './CartList';
+import Layout from './Layout';
+import NoPage from './NoPage';
 
 function App() {
   return (
     <div className="container">
-      <h1>Nowa Lista Zadań</h1>
-      <header className="App-header">
-        <BooksList/>
-      <UsersList/>
-      <CartList/>
-        <TodoList title="To do list" />
-      </header>
+      
+      <BrowserRouter>
+        <Layout> 
+        
+          <Routes>
+            <Route index element={<BooksList />} />
+            <Route path="users" element={<UsersList />} />
+            <Route path="carts" element={<CartList />} />
+            <Route path="toDos" element={<TodoList title="To do list" />} />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </div>
   );
 }
