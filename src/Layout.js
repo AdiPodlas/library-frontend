@@ -18,6 +18,9 @@ const Layout = ({ children }) => {
           <li>
             <Link to="/toDos"> Lista zadań </Link>
           </li>
+          <li>
+            <Link to="/SandBox"> Piaskownica </Link>
+          </li>
         </ul>
       </nav>
       <main>
