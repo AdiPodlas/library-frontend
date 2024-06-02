@@ -48,3 +48,14 @@ color: black;
     transform: rotate(360deg);
   }
 }
+
+button {background-color: darkgoldenrod;
+color: blanchedalmond;
+cursor: pointer;
+}
+
+button:disabled {background-color: brown;
+  color: azure;
+  cursor: not-allowed;
+
+}
